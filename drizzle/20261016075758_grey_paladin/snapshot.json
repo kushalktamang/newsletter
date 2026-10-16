@@ -2,9 +2,7 @@
   "version": "8",
   "dialect": "postgres",
   "id": "c2df94bd-b0e0-4b75-8248-d91d1a80da9f",
-  "prevIds": [
-    "4e08266c-e5a3-4a53-8e2d-bde76c7928c0"
-  ],
+  "prevIds": ["4e08266c-e5a3-4a53-8e2d-bde76c7928c0"],
   "ddl": [
     {
       "isRlsEnabled": false,
@@ -139,9 +137,7 @@
       "table": "subscribers"
     },
     {
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "nameExplicit": false,
       "name": "users_pkey",
       "schema": "public",
@@ -150,9 +146,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "nullsNotDistinct": false,
       "name": "users_email_key",
       "schema": "public",
@@ -161,9 +155,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "confirm_token"
-      ],
+      "columns": ["confirm_token"],
       "nullsNotDistinct": false,
       "name": "subscribers_confirm_token_key",
       "schema": "public",
@@ -172,9 +164,7 @@
     },
     {
       "nameExplicit": false,
-      "columns": [
-        "unsubscribe_token"
-      ],
+      "columns": ["unsubscribe_token"],
       "nullsNotDistinct": false,
       "name": "subscribers_unsubscribe_token_key",
       "schema": "public",
@@ -182,7 +172,5 @@
       "entityType": "uniques"
     }
   ],
-  "renames": [
-    "public.users->public.subscribers"
-  ]
+  "renames": ["public.users->public.subscribers"]
 }

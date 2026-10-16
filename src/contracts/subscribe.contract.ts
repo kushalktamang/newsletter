@@ -5,32 +5,26 @@ const contract = initContract();
 
 const SubscribeBody = z
   .object({
-    email: z.email().meta({
-      description: "Email to subscribe",
-      examples: ["user@example.com"],
-    }),
+    email: z
+      .email()
+      .trim()
+      .toLowerCase()
+      .max(254)
+      .meta({
+        description: "Email to subscribe",
+        examples: ["user@example.com"],
+      }),
   })
   .meta({ id: "SubscribeBody", description: "Newsletter subscription request" });
 
-const SubscribeResponse = z
+const MessageResponse = z
   .object({
-    email: z.email().meta({
-      description: "The email address that was subscribed",
-      examples: ["user@example.com"],
-    }),
-    subscribedAt: z.iso.datetime().meta({
-      description: "When the subscription was created (ISO 8601, UTC)",
-      examples: ["2026-10-16T09:30:00.000Z"],
+    success: z.boolean().meta({ description: "Whether the request was accepted" }),
+    message: z.string().meta({
+      examples: ["If this email can be subscribed, a confirmation email is on its way."],
     }),
   })
-  .meta({
-    id: "SubscribeResponse",
-    description: "Subscription created",
-  });
-
-const ErrorResponse = z
-  .object({ message: z.string().meta({ examples: ["Email is already subscribed"] }) })
-  .meta({ id: "ErrorResponse", description: "Email is already subscribed" });
+  .meta({ id: "MessageResponse", description: "Result of the subscribe request" });
 
 const subscribeContract = contract.router({
   subscribe: {
@@ -39,8 +33,8 @@ const subscribeContract = contract.router({
     path: "/v1/newsletter/subscribe",
     summary: "Subscribe",
     body: SubscribeBody,
-    responses: { 201: SubscribeResponse, 409: ErrorResponse },
+    responses: { 202: MessageResponse, 400: MessageResponse, 500: MessageResponse },
   },
 });
 
-export { SubscribeBody, SubscribeResponse, ErrorResponse, subscribeContract };
+export { SubscribeBody, MessageResponse, subscribeContract };

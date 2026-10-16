@@ -1,25 +1,33 @@
 import type { z } from "zod";
 
-import type {
-  ErrorResponse,
-  SubscribeBody,
-  SubscribeResponse,
-} from "../../contracts/subscribe.contract.js";
+import logger from "../../config/logger.js";
+import type { MessageResponse, SubscribeBody } from "../../contracts/subscribe.contract.js";
 
-type SubscribeBody = { body: z.infer<typeof SubscribeBody> };
+type SubscribeRequest = { body: z.infer<typeof SubscribeBody> };
+type MessageBody = z.infer<typeof MessageResponse>;
 
-type SubscribeResult =
-  | { status: 201; body: z.infer<typeof SubscribeResponse> }
-  | { status: 409; body: z.infer<typeof ErrorResponse> };
+type SubscribeResult = { status: 202; body: MessageBody } | { status: 500; body: MessageBody };
 
 const subscribeRouter = {
-  subscribe: async ({ body }: SubscribeBody): Promise<SubscribeResult> => ({
-    status: 201,
-    body: {
-      email: body.email,
-      subscribedAt: new Date().toISOString(),
-    },
-  }),
+  subscribe: async ({ body }: SubscribeRequest): Promise<SubscribeResult> => {
+    try {
+      const subscriber = body.email;
+      console.log(subscriber);
+
+      logger.info("Subscribe handler: request processed");
+
+      return {
+        status: 202,
+        body: {
+          success: true,
+          message: "If this email can be subscribed, a confirmation email is on its way.",
+        },
+      };
+    } catch (error) {
+      logger.error(error);
+      return { status: 500, body: { success: false, message: "Failed to subscribe" } };
+    }
+  },
 };
 
 export default subscribeRouter;
