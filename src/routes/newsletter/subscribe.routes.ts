@@ -2,6 +2,7 @@ import type { z } from "zod";
 
 import logger from "../../config/logger.js";
 import type { MessageResponse, SubscribeBody } from "../../contracts/subscribe.contract.js";
+import { upsertSubscriber } from "../../services/newsletter.js";
 
 type SubscribeRequest = { body: z.infer<typeof SubscribeBody> };
 type MessageBody = z.infer<typeof MessageResponse>;
@@ -11,8 +12,8 @@ type SubscribeResult = { status: 202; body: MessageBody } | { status: 500; body:
 const subscribeRouter = {
   subscribe: async ({ body }: SubscribeRequest): Promise<SubscribeResult> => {
     try {
-      const subscriber = body.email;
-      console.log(subscriber);
+      const subscriber = await upsertSubscriber(body.email);
+      logger.info(subscriber);
 
       logger.info("Subscribe handler: request processed");
 

@@ -18,6 +18,7 @@
     "studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@google-cloud/pubsub": "^6.3.0",
     "@neondatabase/serverless": "^1.1.0",
     "@scalar/express-api-reference": "^0.10.29",
     "@ts-rest/core": "3.53.0-rc.1",
