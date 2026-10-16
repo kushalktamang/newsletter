@@ -1,15 +1,15 @@
 import { initContract } from "@ts-rest/core";
 import { z } from "zod";
 
-const c = initContract();
+const contract = initContract();
 
-export const HealthResponse = z.object({
+const HealthResponse = z.object({
   status: z.enum(["healthy", "unhealthy"]),
   timestamp: z.iso.datetime(),
   environment: z.string(),
 });
 
-export const healthContract = c.router({
+const healthContract = contract.router({
   check: {
     description: "Get health status",
     method: "GET",
@@ -18,3 +18,5 @@ export const healthContract = c.router({
     responses: { 200: HealthResponse },
   },
 });
+
+export default healthContract;

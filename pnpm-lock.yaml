@@ -15,14 +15,11 @@ importers:
         specifier: ^0.10.29
         version: 0.10.29
       '@ts-rest/core':
-        specifier: ^3.52.1
-        version: 3.52.1(@types/node@26.6.2)(zod@4.6.5)
+        specifier: 3.53.0-rc.1
+        version: 3.53.0-rc.1(@types/node@26.6.2)
       '@ts-rest/express':
-        specifier: ^3.52.1
-        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@26.6.2)(zod@4.6.5))(express@5.2.1)(zod@4.6.5)
-      '@ts-rest/open-api':
-        specifier: ^3.52.1
-        version: 3.52.1(@ts-rest/core@3.52.1(@types/node@26.6.2)(zod@4.6.5))(zod@4.6.5)
+        specifier: 3.53.0-rc.1
+        version: 3.53.0-rc.1(@ts-rest/core@3.53.0-rc.1(@types/node@26.6.2))(express@5.2.1)
       cookie-parser:
         specifier: ^1.4.7
         version: 1.4.7
@@ -95,12 +92,6 @@ importers:
         version: 7.0.2
 
 packages:
-
-  '@anatine/zod-openapi@1.14.2':
-    resolution: {integrity: sha512-q0qHfnuNYVKu0Swrnnvfj9971AEyW7c8v9jCOZGCl5ZbyGMNG4RPyJkRcMi/JC8CRfdOe0IDfNm1nNsi2avprg==}
-    peerDependencies:
-      openapi3-ts: ^2.0.0 || ^3.0.0
-      zod: ^3.20.0
 
   '@colors/colors@1.6.0':
     resolution: {integrity: sha512-Ir+AOibqzrIsL6ajt3Rz3LskB7OiMVHqltZmspbW/TJuTVuyOMirVqAkjfY6JISiLHgyNqicAC8AyHHGzNd/dA==}
@@ -737,32 +728,19 @@ packages:
   '@so-ric/colorspace@1.1.6':
     resolution: {integrity: sha512-/KiKkpHNOBgkFJwu9sh48LkHSMYGyuTcSFK/qMBdnOAlrRJzRSXAOFB5qwzaVQuDl8wAvHVMkaASQDReTahxuw==}
 
-  '@ts-rest/core@3.52.1':
-    resolution: {integrity: sha512-tAjz7Kxq/grJodcTA1Anop4AVRDlD40fkksEV5Mmal88VoZeRKAG8oMHsDwdwPZz+B/zgnz0q2sF+cm5M7Bc7g==}
+  '@ts-rest/core@3.53.0-rc.1':
+    resolution: {integrity: sha512-hDMXqKHSys6w+kXFW1Q6EvN8QgRvtXKXJ2TpYByKI4TquaPjiTOv99aLD26X4LNRzdna8Ci1PVyzr0jYZv0oNQ==}
     peerDependencies:
       '@types/node': ^18.18.7 || >=20.8.4
-      zod: ^3.22.3
     peerDependenciesMeta:
       '@types/node':
         optional: true
-      zod:
-        optional: true
 
-  '@ts-rest/express@3.52.1':
-    resolution: {integrity: sha512-ttVynyJSWYnVzn7FazSFvShD5j3Lq1JsIhSKereV2Z51zxWEQwo35CpCO3Q8rELzkfD9CYoT6eNSBJRlJLogIw==}
+  '@ts-rest/express@3.53.0-rc.1':
+    resolution: {integrity: sha512-TPF2kFdxCF6fI41z2yXexPjSdjN5e65sanmCiUx/4HNp5/ObcGLkHbdHSnvDhNkmkPn3jcd6g2EOvQgsQ8mkfg==}
     peerDependencies:
-      '@ts-rest/core': ~3.52.0
-      express: ^4.0.0
-      zod: ^3.22.3
-    peerDependenciesMeta:
-      zod:
-        optional: true
-
-  '@ts-rest/open-api@3.52.1':
-    resolution: {integrity: sha512-VY91g6HFzCe1/fNgX4Y3HzaJbIdztCGHTg34drkh7bKgtNOizLJLXV0wwIkMwLGvjhRHojJxnwYxHjGMIkScwg==}
-    peerDependencies:
-      '@ts-rest/core': ~3.52.0
-      zod: ^3.22.3
+      '@ts-rest/core': 3.53.0-rc.1
+      express: ^4.0.0 || ^5.0.0
 
   '@types/body-parser@1.19.6':
     resolution: {integrity: sha512-HLFeCYgz89uk22N5Qg3dvGvsv46B8GLvKKo1zKG4NybA8U2DiEO3w9lqGg29t/tfLRJpJ6iQxnVw4OnB7MoM9g==}
@@ -1379,9 +1357,6 @@ packages:
   one-time@1.0.0:
     resolution: {integrity: sha512-5DXOiRKwuSEcQ/l0kGCF6Q3jcADFv5tSmRaJck/OqkVFcOzutB134KRSfF0xDrL39MNnqxbHBbUUcjZIhTgb2g==}
 
-  openapi3-ts@2.0.2:
-    resolution: {integrity: sha512-TxhYBMoqx9frXyOgnRHufjQfPXomTIHYKhSKJ6jHfj13kS8OEIhvmE8CTuQyKtjjWttAjX5DPxM1vmalEpo8Qw==}
-
   oxfmt@0.70.0:
     resolution: {integrity: sha512-IsHxZ4y0wQLLMhnrJblBJgZsLDzfULrJnAw5j/QqsTlMa/m3AqsbToi+W71uhBGaqlqq/PbbjvHc09TJwdv3Tw==}
     engines: {node: ^20.19.0 || >=22.12.0}
@@ -1515,10 +1490,6 @@ packages:
     resolution: {integrity: sha512-aZbgViZrg1QNcG+LULa7nhZpJTZSLm/mXnHXnbAbjmN5aSa0y7V+wvv6+4WaBtpISJzThKy+PIPxc1Nq1EJ9mg==}
     engines: {node: '>= 14.0.0'}
 
-  ts-deepmerge@6.2.1:
-    resolution: {integrity: sha512-8CYSLazCyj0DJDpPIxOFzJG46r93uh6EynYjuey+bxcLltBeqZL7DMfaE5ZPzZNFlav7wx+2TDa/mBl8gkTYzw==}
-    engines: {node: '>=14.13.1'}
-
   ts-pattern@5.9.2:
     resolution: {integrity: sha512-qAf+7M7Jjk7uebZeIo9uEzyintfuRtgHdzM9dqxRKcMi2dt76Ec+FH2wW3bnU9TuGLkZIJLoLs7cCQnU7Tu8ig==}
 
@@ -1565,10 +1536,6 @@ packages:
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  yaml@1.10.3:
-    resolution: {integrity: sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==}
-    engines: {node: '>= 6'}
-
   zod-openapi@6.0.2:
     resolution: {integrity: sha512-SwC5Ppi2ov8WimzNWP/XK95VqPyLDzxPYj10HgNPzhZH9gO7zx0sxdYL9eq7wOADHx1JddOApjhYDmMWQvnVnw==}
     engines: {node: '>=22.14.0'}
@@ -1579,12 +1546,6 @@ packages:
     resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
 
 snapshots:
-
-  '@anatine/zod-openapi@1.14.2(openapi3-ts@2.0.2)(zod@4.6.5)':
-    dependencies:
-      openapi3-ts: 2.0.2
-      ts-deepmerge: 6.2.1
-      zod: 4.6.5
 
   '@colors/colors@1.6.0': {}
 
@@ -1924,24 +1885,14 @@ snapshots:
       color: 5.0.3
       text-hex: 1.0.0
 
-  '@ts-rest/core@3.52.1(@types/node@26.6.2)(zod@4.6.5)':
+  '@ts-rest/core@3.53.0-rc.1(@types/node@26.6.2)':
     optionalDependencies:
       '@types/node': 26.6.2
-      zod: 4.6.5
 
-  '@ts-rest/express@3.52.1(@ts-rest/core@3.52.1(@types/node@26.6.2)(zod@4.6.5))(express@5.2.1)(zod@4.6.5)':
+  '@ts-rest/express@3.53.0-rc.1(@ts-rest/core@3.53.0-rc.1(@types/node@26.6.2))(express@5.2.1)':
     dependencies:
-      '@ts-rest/core': 3.52.1(@types/node@26.6.2)(zod@4.6.5)
+      '@ts-rest/core': 3.53.0-rc.1(@types/node@26.6.2)
       express: 5.2.1
-    optionalDependencies:
-      zod: 4.6.5
-
-  '@ts-rest/open-api@3.52.1(@ts-rest/core@3.52.1(@types/node@26.6.2)(zod@4.6.5))(zod@4.6.5)':
-    dependencies:
-      '@anatine/zod-openapi': 1.14.2(openapi3-ts@2.0.2)(zod@4.6.5)
-      '@ts-rest/core': 3.52.1(@types/node@26.6.2)(zod@4.6.5)
-      openapi3-ts: 2.0.2
-      zod: 4.6.5
 
   '@types/body-parser@1.19.6':
     dependencies:
@@ -2415,10 +2366,6 @@ snapshots:
     dependencies:
       fn.name: 1.1.0
 
-  openapi3-ts@2.0.2:
-    dependencies:
-      yaml: 1.10.3
-
   oxfmt@0.70.0:
     dependencies:
       tinypool: 2.1.2
@@ -2597,8 +2544,6 @@ snapshots:
 
   triple-beam@1.4.1: {}
 
-  ts-deepmerge@6.2.1: {}
-
   ts-pattern@5.9.2: {}
 
   tsx@4.23.15:
@@ -2669,8 +2614,6 @@ snapshots:
       winston-transport: 4.9.0
 
   wrappy@1.0.2: {}
-
-  yaml@1.10.3: {}
 
   zod-openapi@6.0.2(zod@4.6.5):
     dependencies:
