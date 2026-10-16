@@ -12,8 +12,9 @@ import morganMiddleware from "./middleware/morgan.js";
 import notFound from "./middleware/not-found.js";
 import { openApiDocument } from "./openapi/document.js";
 import router from "./routes/index.js";
+import type PubSubService from "./services/pub-sub/types.js";
 
-const createServer = (): Express => {
+const createServer = (pubSub: PubSubService): Express => {
   const server = express();
 
   server.get("/openapi.json", (_req, res) => {
@@ -28,7 +29,7 @@ const createServer = (): Express => {
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
 
-  createExpressEndpoints(contract, router, server, { responseValidation: true });
+  createExpressEndpoints(contract, router(pubSub), server, { responseValidation: true });
 
   // error handling for 404  route not found
   server.use(notFound);

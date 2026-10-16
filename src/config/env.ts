@@ -17,6 +17,7 @@ const envSchema = z.object({
   PORT: z.string().default("8081"),
   LOG_LEVEL: z.enum(["error", "warn", "info", "http", "verbose", "debug", "silly"]).default("info"),
   DATABASE_URL: z.string(),
+  GCP_PROJECT_ID: z.string(),
 });
 
 const env = envSchema.parse(process.env);
